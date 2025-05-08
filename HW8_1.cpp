@@ -1,7 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include <map>
-#include <limits>
+#include <iomanip>
 
 using namespace std;
 
@@ -13,7 +13,8 @@ int main(int argc, char* argv[])
     map<string , int> score_sum,times;
     int in_times;
     input>>in_times;
-    input.ignore(numeric_limits<streamsize>::max(), '\n');
+    //input.ignore(numeric_limits<streamsize>::max(), '\n');
+    input.ignore();
 
 
     for(int i=0;i<in_times;i++)
@@ -24,7 +25,8 @@ int main(int argc, char* argv[])
         getline(input,movie_name);
         //input.get();
         input>>score;
-        input.ignore(numeric_limits<streamsize>::max(), '\n');
+        input.ignore();
+        //input.ignore(numeric_limits<streamsize>::max(), '\n');
 
         //cout<<movie_name<<endl;
 
@@ -46,7 +48,8 @@ int main(int argc, char* argv[])
         cout<<": "<<times.at(movie_name)<<" review";
         if(times.at(movie_name)>1) cout<<"s";
         cout<<", average of ";
-        cout<<average<<" / 5\n";
+        cout<<fixed<<setprecision(1)<<average<<" / 5\n";
+        //fixed<<setprecision(1)
     }
     // for (auto it1 = score_sum.begin(); it1 != score_sum.end(); ++it1) {
     //     const string& movie = it1->first;
